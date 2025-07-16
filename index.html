@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,20 +7,27 @@
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs>
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+    >
       <a-nft
         type="nft"
         url="marcador/billete"
         smooth="true"
         smoothCount="10"
         smoothTolerance="0.01"
-        smoothThreshold="5">
+        smoothThreshold="5"
+      >
+        <a-text value="¡Marcador detectado!" position="0 1 0" scale="2 2 2" color="red"></a-text>
+
         <a-entity
           gltf-model="modelos/he.glb"
-          scale="0.2 0.2 0.2"
-          position="0 0 0"
-          animation-mixer>
-        </a-entity>
+          scale="1 1 1"
+          position="0 0 0.5"
+          animation-mixer
+        ></a-entity>
       </a-nft>
       <a-entity camera></a-entity>
     </a-scene>
